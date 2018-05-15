@@ -1,0 +1,9 @@
+FROM debian:jessie
+
+MAINTAINER usagikeri
+
+RUN apt-get update && \
+  apt-get install -y slowhttptest && \
+  rm -rf /var/lib/apt/lists/*
+
+cmd ["/bin/bash"]

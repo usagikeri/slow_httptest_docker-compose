@@ -1,0 +1,28 @@
+version: '2'
+services:
+  tool:
+    build: ./tool
+    container_name: tool
+    tty: true
+    stdin_open: true
+    networks:
+      backend:
+
+  apache:
+    image: httpd 
+    container_name: apache
+    expose:
+      - "80"
+    networks:
+      backend:
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    expose:
+      - "8080"
+    networks:
+      backend:
+
+networks:
+  backend:
